@@ -144,3 +144,42 @@ Route::middleware('auth')->group(function(){
 
 // SIGNED ROUTES
 // USED FOR GENERATE TEMP LINKS
+
+
+// HTTP METHODS
+// @method('DELETE') - in form
+
+// SCRF
+// echo csrf_field(); - in form
+
+// REDIRECTS
+// redirect()->to('login)   // global helper
+// redirect('login')        // globale helper shortcut
+// Redirect::to('login')
+
+
+// redirect()->to() has default code 302 - redirect
+
+// redirect()->back()
+// back() - shortcut
+
+// redirect()->with() - pass parameters to page for fleshing
+// example:
+// redirect('dashboard')->with('error', true);
+// redirect('dashboard')=>with(['error'=>true, 'message' => 'Whoops!']);
+
+
+// use old('field_name') for input autofill
+
+
+// ABORTING THE REQUEST
+// abort()
+// abort_if($request->user()->isBanned, 403)
+// abort_unless($request->has('maginToken'), 403)
+
+
+// CUSTOM RESPONSES
+// responce()->make('Hello world', code)
+// responce()->json(User::all())
+
+// WRITING TESTS - სანახავია
