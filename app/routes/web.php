@@ -20,11 +20,6 @@ Route::get('/', function () {
 
 
 
-
-
-
-
-
 // ROUTE VERBS
 /*
 Route::get
@@ -128,3 +123,24 @@ Route::middleware('auth')->group(function(){
 //         //
 //     });
 // });
+
+
+// NAMESPACE ROUTES
+// Route::namespace('Dashboard')->group(function(){
+        // App\Http\Controllers\Dashboard\PurchasesController
+//      Route::get('dashboard/purchases', [PurchasesController::class, 'index']);
+// });
+
+
+// PREFIXES
+// Route::name('users.')->prefix('users')->group(function(){
+//     Route::name('comments.')->prefix('comments')->group(function(){
+//         Route::get('{id}', function($id){
+//             return dd($id);
+//         })->name('show');
+//     });
+// });
+
+
+// SIGNED ROUTES
+// USED FOR GENERATE TEMP LINKS
