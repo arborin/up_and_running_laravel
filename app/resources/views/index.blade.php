@@ -94,8 +94,16 @@ sign-up-button - is blade template
 @endpush
 
 # COMPONENTS AND SLOTS
+# გასატესტია
 
 
+# SHARING VARIABLES GLOBALY
+ყველა view_ს თუ გვინდა გადავაწოდოთ მაგალითად მენიუ:
+სერვის პროვაიდერებში boot_ში გავწერთ:
+
+view->share('Menu', Modules::all())
+
+view()->composer() - გასატესტია
 
 
 
