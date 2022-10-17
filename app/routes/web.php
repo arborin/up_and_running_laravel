@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TasksController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -144,3 +145,59 @@ Route::middleware('auth')->group(function(){
 
 // SIGNED ROUTES
 // USED FOR GENERATE TEMP LINKS
+
+
+
+// =============================================================================
+// RENDERING VIEWS
+// =============================================================================
+
+// Returns resources/views/example.blade.php
+// Route::view('/example', 'example');
+
+// Passing simple data to Route::view()
+// Route::view('/example', 'example', ['user' => 'nika kobaidze']);
+
+
+// ! PASS VARIABLES TO EVERY VIEW !
+// view()->share('variableName', 'variableValue');
+
+
+
+
+// =============================================================================
+// CONTROLLERS
+// =============================================================================
+
+// MAKING CONTROLLER
+// php artisan make:controller TasksController
+// php artisan make:controller TasksController --resource
+
+// Route::get('tasks', [TasksController::class, 'index']);
+
+
+// RESOURCE CONTROLLER BINDINGS
+// Route::resource('tasks', TasksController::class);
+// SHOW ALL ROUTES
+// php artisan route:list
+
+
+// SINGLE ACTION CONTROLLER
+// __invoke _ სანახავია
+
+
+// ROUTE MODEL BINDING
+// Custom Route Model Binding
+// სანახავია
+
+
+
+// ROUTE CACHING
+// caching routes
+// php artisan route:cache
+
+// clear cache
+// php artisan route:clear
+
+
+// FORM METHODS

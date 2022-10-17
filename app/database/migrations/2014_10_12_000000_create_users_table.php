@@ -34,3 +34,76 @@ return new class extends Migration
         Schema::dropIfExists('users');
     }
 };
+
+
+/**
+ * INTEGER
+ * integer, tinyInteger, smallInteger, mediumInteger, bigInteger
+ *
+ * STRING
+ * string(colname, length) // varchar field
+ *
+ * BOOLEAN
+ * boolean(colname) // tinyint(1)
+ *
+ * CHAR
+ * char(colname, length) // char column
+ *
+ * DATETIME
+ * datetime(colname) // datetime column
+ *
+ * DECIMAL
+ * decimal(colname, precision, scale)
+ *
+ * DOUBLE
+ * double(colname, total_digits, digits_after_decimal)
+ *
+ * ENUM
+ * enum(colname, [option1, option2])
+ *
+ * FLOAT
+ * float(colname, precision, scale)
+ *
+ * JSON
+ * json(colname)
+ *
+ * TEXT
+ * text(colname)
+ *
+ * TIME
+ * time(colname)
+ *
+ * TIMESTAMP
+ * timestamp(colname)
+ *
+ * UUID
+ * uuid(colname) // char(36) column
+ *
+ * INCREMENT
+ * increment/bigIncrement // primary integer/biginteger id key
+ *
+ * TIMESTAMPS
+ * timestamp() // created_at updated_at
+ *
+ * REMEMBER
+ * rememberToken() // varchar(100) for remember me tokens
+ *
+ * SOFTDELETE
+ * softDelete() // deleted_at timestamp for use with soft deletes
+ *
+ * MORPHS
+ * morphs(colname) //
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
