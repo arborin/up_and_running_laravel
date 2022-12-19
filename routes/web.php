@@ -147,57 +147,40 @@ Route::middleware('auth')->group(function(){
 // USED FOR GENERATE TEMP LINKS
 
 
+// HTTP METHODS
+// @method('DELETE') - in form
 
-// =============================================================================
-// RENDERING VIEWS
-// =============================================================================
+// SCRF
+// echo csrf_field(); - in form
 
-// Returns resources/views/example.blade.php
-// Route::view('/example', 'example');
-
-// Passing simple data to Route::view()
-// Route::view('/example', 'example', ['user' => 'nika kobaidze']);
-
-
-// ! PASS VARIABLES TO EVERY VIEW !
-// view()->share('variableName', 'variableValue');
+// REDIRECTS
+// redirect()->to('login)   // global helper
+// redirect('login')        // globale helper shortcut
+// Redirect::to('login')
 
 
+// redirect()->to() has default code 302 - redirect
+
+// redirect()->back()
+// back() - shortcut
+
+// redirect()->with() - pass parameters to page for fleshing
+// example:
+// redirect('dashboard')->with('error', true);
+// redirect('dashboard')=>with(['error'=>true, 'message' => 'Whoops!']);
 
 
-// =============================================================================
-// CONTROLLERS
-// =============================================================================
-
-// MAKING CONTROLLER
-// php artisan make:controller TasksController
-// php artisan make:controller TasksController --resource
-
-// Route::get('tasks', [TasksController::class, 'index']);
+// use old('field_name') for input autofill
 
 
-// RESOURCE CONTROLLER BINDINGS
-// Route::resource('tasks', TasksController::class);
-// SHOW ALL ROUTES
-// php artisan route:list
+// ABORTING THE REQUEST
+// abort()
+// abort_if($request->user()->isBanned, 403)
+// abort_unless($request->has('maginToken'), 403)
 
 
-// SINGLE ACTION CONTROLLER
-// __invoke _ სანახავია
+// CUSTOM RESPONSES
+// responce()->make('Hello world', code)
+// responce()->json(User::all())
 
-
-// ROUTE MODEL BINDING
-// Custom Route Model Binding
-// სანახავია
-
-
-
-// ROUTE CACHING
-// caching routes
-// php artisan route:cache
-
-// clear cache
-// php artisan route:clear
-
-
-// FORM METHODS
+// WRITING TESTS - სანახავია
