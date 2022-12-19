@@ -94,13 +94,21 @@ return new class extends Migration
  * MORPHS
  * morphs(colname) //
  *
+ * =========================================================================================
+ * nullable()
+ * default('default content')
+ * unsigned -
+ * first - place first column
+ * after(colname) - place
+ * unique()
+ * primary()
+ * index()
  *
+ * ===========================================================================================
  *
+ * Schema::dropIfExists('contacts')
  *
- *
- *
- *
- *
+ * $table->string('name', 100)->change(); // change column
  *
  *
  *
