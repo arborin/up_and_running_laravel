@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
+    use SoftDeletes;
     // protected $table = "other_table_name"
 
     protected $guarded = [];
