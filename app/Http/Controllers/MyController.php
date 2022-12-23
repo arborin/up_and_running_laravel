@@ -13,8 +13,12 @@ class MyController extends Controller
         // foreach ($posts as $post) {
         //     var_dump($post->title);
         // }
+
         return view("posts", ['posts' => $posts]);
     }
+
+
+
 
     public function create()
     {

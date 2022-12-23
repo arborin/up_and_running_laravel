@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\MyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -17,7 +19,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return "HELLO WORLD";
-});
+})->name('main.home');
 
 
-Route::get('/posts', [MyController::class, 'index']);
+Route::get('/posts', [MyController::class, 'index'])->name('post.index');
+Route::get('/contacts', [ContactsController::class, 'index'])->name('contact.index');
+Route::get('/about', [AboutController::class, 'index'])->name('about.index');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
