@@ -1,28 +1,23 @@
 <?php
 
 use App\Http\Controllers\MyController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| API Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
+| Here is where you can register API routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| is assigned the "api" middleware group. Enjoy building your API!
 |
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return "HELLO WORLD";
 });
 
-Route::get('/mypage', [MyController::class, 'index']);
-Route::get('/post/create', [MyController::class, 'create']);
-Route::get('/post/update', [MyController::class, 'update']);
 
-
-
-// old: a7f77ef730b344a0780684ea1036dd92
-// new:
+Route::get('/posts', [MyController::class, 'index']);

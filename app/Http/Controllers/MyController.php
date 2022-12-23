@@ -10,10 +10,10 @@ class MyController extends Controller
     public function index()
     {
         $posts = Post::where('is_published', 1)->get();
-        foreach ($posts as $post) {
-            var_dump($post->title);
-        }
-        // dd($posts);
+        // foreach ($posts as $post) {
+        //     var_dump($post->title);
+        // }
+        return view("posts", ['posts' => $posts]);
     }
 
     public function create()
