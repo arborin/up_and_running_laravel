@@ -2,10 +2,27 @@
 @section('content')
     <div>
         <h3>Posts</h3>
-        <ul>
+        <table class="table">
+            <tr>
+                <td>#</td>
+                <td>Title</td>
+                <td>Content</td>
+
+            </tr>
             @foreach ($posts as $post)
-                <li>{{ $post->title }}</li>
+                <tr>
+                    <td>
+                        {{ $post->id }}
+                    </td>
+                    <td>
+                        {{ $post->title }}
+                    </td>
+                    <td>
+                        {{ $post->post_content }}
+                    </td>
+
+                </tr>
             @endforeach
-        </ul>
+            </ul>
     </div>
 @endsection
