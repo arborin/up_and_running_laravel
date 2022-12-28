@@ -17,6 +17,23 @@
                 <label for="exampleInputEmail1">Image</label>
                 <input type="text" name="image" class="form-control">
             </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Category</label>
+                <select class="form-control" name="category_id">
+                    @foreach ($categories as $category)
+                        <option value={{ $category->id }}>{{ $category->title }}</option>
+                    @endforeach
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label select-label">Tags</label>
+                <select class="select form-control" multiple name="tags[]">
+                    @foreach ($tags as $tag)
+                        <option value="{{ $tag->id }}">{{ $tag->title }}</option>
+                    @endforeach
+                </select>
+            </div>
             <div class="form-group mt-4">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
