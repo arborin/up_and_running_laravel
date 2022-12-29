@@ -6,8 +6,11 @@
             @csrf
             <div class="form-group">
                 <label for="exampleInputEmail1">Post title</label>
-                <input type="text" name="title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="Enter title">
+                <input type="text" name="title" value="{{ old('title') }}" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp" placeholder="Enter title">
+                @error('title')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Content</label>
@@ -15,13 +18,14 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Image</label>
-                <input type="text" name="image" class="form-control">
+                <input type="text" name="image" value="{{ old('image') }}" class="form-control">
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Category</label>
                 <select class="form-control" name="category_id">
                     @foreach ($categories as $category)
-                        <option value={{ $category->id }}>{{ $category->title }}</option>
+                        <option {{ old('category_id') == $category->id ? ' selected ' : '' }} value={{ $category->id }}>
+                            {{ $category->title }}</option>
                     @endforeach
 
                 </select>
