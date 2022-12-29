@@ -32,12 +32,14 @@
             </div>
 
             <div class="form-group">
-                <select class="select" multiple>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                    <option value="4">Four</option>
-                    <option value="5">Five</option>
+                <select class="select form-control" multiple name="tags[]">
+
+                    @foreach ($tags as $tag)
+                        <option
+                            @foreach ($post->tags as $postTag)
+                            {{ $tag->id === $postTag->id ? ' selected ' : '' }} @endforeach
+                            value="{{ $tag->id }}">{{ $tag->title }}</option>
+                    @endforeach
                 </select>
                 <label class="form-label select-label">Example label</label>
             </div>

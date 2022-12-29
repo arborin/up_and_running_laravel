@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tag;
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\PostTag;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -50,9 +51,17 @@ class PostController extends Controller
         $tags = $data['tags'];
         unset($data['tags']);
 
-        dd($data, $tags);
+        $post = Post::create($data);
 
-        Post::create($data);
+        // foreach ($tags as $tag) {
+        //     PostTag::firstOrCreate([
+        //         'tag_id' => $tag,
+        //         'post_id' => $post->id,
+        //     ]);
+        // }
+
+        $post->tags()->attach($tags);
+
 
         return redirect()->route('post.index');
     }
@@ -82,10 +91,17 @@ class PostController extends Controller
             'title' => 'string',
             'post_content' => 'string',
             'image' => 'string',
-            'category_id' => 'integer'
+            'category_id' => 'integer',
+            'tags' => ''
         ]);
 
+        $tags = $data['tags'];
+
+        unset($data['tags']);
+
         $post->update($data);
+
+        $post->tags()->sync($tags);
 
         return redirect()->route('post.show', $post->id);
     }
