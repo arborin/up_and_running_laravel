@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\MyController;
+use App\Http\Controllers\Post\CreateController;
 use App\Http\Controllers\PostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,13 +24,21 @@ Route::get('/', function () {
 })->name('main.home');
 
 
-Route::get('/posts', [PostController::class, 'index'])->name('post.index');
-Route::get('/posts/create', [PostController::class, 'create'])->name('post.create');
-Route::post('/posts/store', [PostController::class, 'store'])->name('post.store');
-Route::get('/posts/{post}', [PostController::class, 'show'])->name('post.show');
-Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('post.edit');
-Route::patch('/posts/{post}', [PostController::class, 'update'])->name('post.update');
-Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('post.delete');
 
-Route::get('/contacts', [ContactsController::class, 'index'])->name('contact.index');
-Route::get('/about', [AboutController::class, 'index'])->name('about.index');
+Route::group(['namespace' => 'App\Http\Controllers\Post'], function () {
+    Route::get('/posts', 'CreateController')->name('post.index');
+    Route::get('/posts/store', 'CreateController')->name('post.store');
+    Route::get('/about', 'CreateController')->name('about.index');
+});
+
+
+//
+// Route::get('/posts/create', [PostController::class, 'create'])->name('post.create');
+// Route::post('/posts/store', [PostController::class, 'store'])->name('post.store');
+// Route::get('/posts/{post}', [PostController::class, 'show'])->name('post.show');
+// Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('post.edit');
+// Route::patch('/posts/{post}', [PostController::class, 'update'])->name('post.update');
+// Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('post.delete');
+
+// Route::get('/contacts', [ContactsController::class, 'index'])->name('contact.index');
+// Route::get('/about', [AboutController::class, 'index'])->name('about.index');
