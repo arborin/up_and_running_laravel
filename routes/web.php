@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\MyController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +23,12 @@ Route::get('/mypage', [MyController::class, 'index']);
 Route::get('/post/create', [MyController::class, 'create']);
 Route::get('/post/update', [MyController::class, 'update']);
 
+Route::get('/hello/{name}', function ($name) {
+    echo $name;
+});
 
-
-// old: a7f77ef730b344a0780684ea1036dd92
-// new:
+Route::group(['prefix' => 'news'], function () {
+    Route::get('/', [IndexController::class, 'index'])->name('news.index');
+    Route::get('/create', [IndexController::class, 'create'])->name('news.create');
+    Route::get('/edit/{id}', [IndexController::class, 'edit'])->name('news.edit');
+});
