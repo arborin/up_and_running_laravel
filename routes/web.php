@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\MyController;
 use App\Http\Controllers\Post\CreateController;
@@ -36,10 +37,8 @@ Route::get('/hello/{name}', function ($name) {
     echo $name;
 });
 
-Route::group(['prefix' => 'news'], function () {
-    Route::get('/', [IndexController::class, 'index'])->name('news.index');
-    Route::get('/create', [IndexController::class, 'create'])->name('news.create');
-    Route::get('/edit/{id}', [IndexController::class, 'edit'])->name('news.edit');
+Route::group(['prefix' => 'admin'], function () {
+    Route::resource('news', NewsController::class);
 });
 //
 // Route::get('/posts/create', [PostController::class, 'create'])->name('post.create');
